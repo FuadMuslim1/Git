@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Utama - My English App</title>
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/button.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+</head>
+<body>
+    <header>
+        <h1>Menu Utama</h1>
+        <div>
+            <button class="btn header-btn btn-primary" onclick="window.location.href = 'index.html'" style="visibility: hidden;">BACK</button>
+            <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="menu-grid">
+            <button id="btn-pronunciation" class="btn menu-btn">1. Pronunciation (IPA)</button>
+            <button id="btn-speaking" class="btn menu-btn">2. Speaking Practice</button>
+            <button id="btn-vocabulary" class="btn menu-btn">3. Vocabulary Builder</button>
+            <button id="btn-grammar" class="btn menu-btn">4. Grammar Rules</button>
+        </div>
+    </div>
+
+    <script type="module" src="./js/router.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/menu.js"></script>
+</body>
+</html>

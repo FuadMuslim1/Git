@@ -1,0 +1,30 @@
+{
+  "ɪ": [
+    { "word": "sit", "youtubeId": "kLwQf-vQp-Y" },
+    { "word": "hill", "youtubeId": "v8TzTjV5j3M" },
+    { "word": "thing", "youtubeId": "A1B2C3D4E5F" },
+    { "word": "quick", "youtubeId": "F5E4D3C2B1A" }
+    // Tambahkan hingga 30 kata
+  ],
+  "e": [
+    { "word": "bed", "youtubeId": "G6H7I8J9K0L" },
+    { "word": "ten", "youtubeId": "L0K9J8I7H6G" }
+    // ...
+  ],
+  "æ": [
+    { "word": "cat", "youtubeId": "M1N2O3P4Q5R" }
+    // ...
+  ],
+  "uː": [
+    { "word": "food", "youtubeId": "S6T7U8V9W0X" }
+    // ...
+  ],
+  "aɪ": [
+    { "word": "my", "youtubeId": "Y1Z2A3B4C5D" }
+    // ...
+  ],
+  "p": [
+    { "word": "pen", "youtubeId": "E6F7G8H9I0J" }
+    // ...
+  ]
+}

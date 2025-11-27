@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPA Symbol /ɪ/ - My English App</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/button.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <style>
+        .word-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .word-item h4 {
+            font-size: 1.2em;
+        }
+        .youtube-embed {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .youtube-embed iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>IPA Symbol /ɪ/</h2>
+        <div>
+            <button class="btn header-btn btn-primary" onclick="goBack()">BACK</button>
+            <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <p>Contoh kata untuk bunyi **pendek /ɪ/** (seperti pada **SIT**):</p>
+        <div class="card" id="words-list">
+            </div>
+
+        <div class="youtube-embed" id="youtube-player">
+            </div>
+    </div>
+
+    <script type="module" src="../js/router.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module">
+        import { getWordsData } from '../js/data.js';
+
+        // Fungsi untuk mengambil parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        
+        // Fungsi utama
+        document.addEventListener('DOMContentLoaded', async () => {
+            const symbol = getQueryParam('symbol') || 'ɪ'; // Default ke /ɪ/
+            const wordsData = await getWordsData();
+            const words = wordsData[symbol];
+            const wordsListDiv = document.getElementById('words-list');
+            const youtubePlayerDiv = document.getElementById('youtube-player');
+            
+            if (!words) {
+                wordsListDiv.innerHTML = '<p>Data kata untuk simbol ini tidak ditemukan.</p>';
+                return;
+            }
+
+            // Ganti Judul Halaman
+            document.querySelector('header h2').textContent = `IPA Symbol /${symbol}/`;
+
+            let listHtml = '<h3>Daftar Kata:</h3>';
+            words.forEach(item => {
+                listHtml += `
+                    <div class="word-item">
+                        <h4>${item.word.toUpperCase()}</h4>
+                        <button class="btn btn-primary" onclick="playWord('${item.youtubeId}')">Play Sound</button>
+                    </div>
+                `;
+            });
+            wordsListDiv.innerHTML = listHtml;
+
+            // Fungsi global untuk memainkan video (tombol Play Sound)
+            window.playWord = (youtubeId) => {
+                const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+                youtubePlayerDiv.innerHTML = `
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="${embedUrl}" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                `;
+            };
+        });
+    </script>
+</body>
+</html>
