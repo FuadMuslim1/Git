@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vowel Sounds - My English App</title>
+    <title>Vowel Sounds - Learning English Geuwat</title>
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/button.css">
     <link rel="stylesheet" href="../styles/layout.css">
 </head>
 <body>
     <header>
-        <h2>Daftar Simbol Vowel</h2>
+        <h2>Daftar Simbol Vowel - Learning English Geuwat</h2>
         <div>
             <button class="btn header-btn btn-primary" onclick="goBack()">BACK</button>
             <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
@@ -29,7 +29,16 @@
             <div class="symbol-item">
                 <a href="../symbols/e-vowel.html?symbol=e" class="symbol-link">/e/</a>
             </div>
-            </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <button onclick="window.location.href = '../exercise.html'" 
+                    class="btn btn-primary" 
+                    style="width: 100%; max-width: 400px; padding: 15px; font-size: 1.2em; background-color: var(--secondary-color); color: white;">
+                Exercise Menu: Vowel Sounds
+            </button>
+        </div>
+
     </div>
 
     <script type="module" src="../js/router.js"></script>
